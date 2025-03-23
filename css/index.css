@@ -1,0 +1,308 @@
+/* 原有的CSS代码 */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+.container {
+    display: flex;
+    max-width: 1100px; /* 增加宽度以容纳左右两部分 */
+    width: 200%;
+    padding: 20px;
+}
+/* 左侧文字区域 */
+.left-content {
+    top: -20px;
+    flex: 1; /* 占据剩余空间 */
+    padding-right: 40px; /* 与右侧表单保持间距 */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    position: relative; /* 为子元素绝对定位提供参考 */
+}
+
+/* 默认文字样式 */
+.text-default {
+    transition: opacity 0.3s; /* 添加淡出过渡 */
+}
+
+/* 射线激活时的提示文字 */
+.text-overlay {
+    position: absolute;
+    top: 65px;
+    left: 0;
+    width: 100%;
+    opacity: 0; /* 默认隐藏 */
+    color: black;
+    pointer-events: none; /* 防止遮挡射线交互 */
+    transition: opacity 0.3s;
+    z-index: 2; /* 确保在射线上方 */
+}
+
+/* 当.show-password激活时 */
+.show-password .text-default {
+    opacity: 0; /* 隐藏默认文字 */
+}
+
+.show-password .text-overlay {
+    opacity: 1; /* 显示提示文字 */
+}
+
+.text-default h1 {
+    font-size: 3.5rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.text-default p {
+    font-size: 1.2rem;
+    color: #666;
+}
+
+/* 右侧内容区域 */
+.right-content {
+    flex: 1; /* 占据剩余空间 */
+    max-width: 400px; /* 限制表单宽度 */
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* 表单和链接之间的间距 */
+}
+
+
+.effect1 {
+    display: inline-block; /* 确保可点击区域 */
+    padding: 20px 60px; /* 扩大点击区域 */
+    cursor: pointer; /* 显示手型指针 */
+    color: #222;
+    text-decoration: none;
+    font-family: sans-serif;
+    font-size: 24px;
+    position: relative;
+    transition: all 0.3s;
+    /*transform: scale(3);*/
+}
+
+.effect1 .bg {
+    background: #222;
+    width: 30px;
+    height: 2px;
+    position: absolute;
+    right: -20px;
+    top: 50%;
+    margin-top: -1px;
+    z-index: -1;
+    transition: all 0.3s;
+}
+
+.effect1:hover {
+    padding-right: 20px;
+    color: #fff;
+}
+
+.effect1:hover .bg {
+    height: 100%;
+    width: 100%;
+    transform: translate(0, -50%);
+}
+
+.effect1 .bg:before,
+.effect1 .bg:after {
+    content: '';
+    height: 2px;
+    width: 10px;
+    background: #222;
+    position: absolute;
+    right: -2px;
+    transition: all 0.3s;
+}
+
+.effect1 .bg:before {
+    bottom: 3px;
+    transform: rotate(45deg);
+}
+
+.effect1 .bg:after {
+    top: 3px;
+    transform: rotate(-45deg);
+}
+
+.effect1:hover .bg:before,
+.effect1:hover .bg:after {
+    right: 0px;
+}
+
+.effect1:hover .bg:before {
+    bottom: 6px;
+}
+
+.effect1:hover .bg:after {
+    top: 6px;
+}
+
+/* 登录表单的CSS代码 */
+:root {
+    --bgColor: white;
+    --inputColor: black;
+    --outlineColor: dodgerblue;
+    --beamColor: yellow;
+    --spacer: 1rem;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    background: var(--bgColor);
+}
+
+body.show-password {
+    --bgColor: black;
+    --inputColor: white;
+    --outlineColor: var(--beamColor);
+}
+
+form {
+    transform: translate3d(0, 0, 0);
+    padding: var(--spacer);
+    width: 100%;
+    max-width: 400px;
+}
+
+form > * + * {
+    margin-top: var(--spacer);
+}
+
+.form-item > * + * {
+    margin-top: 0.5rem;
+}
+
+label,
+input,
+button {
+    font-size: 1.5rem;
+    font-family: monospace;
+    color: var(--inputColor);
+}
+
+input:focus,
+button:focus {
+    outline: 3px solid var(--outlineColor);
+    outline-offset: 2px;
+}
+
+button {
+    border: none;
+}
+
+
+#submit:active {
+    transform: translateY(1px);
+}
+
+.input-wrapper {
+    position: relative;
+}
+
+input {
+    padding: 0.75rem 4rem 0.75rem 0.75rem;
+    width: 100%;
+    border: 2px solid transparent;
+    border-radius: 0;
+    background-color: transparent;
+    box-shadow: inset 0 0 0 2px black, inset 6px 6px 0 rgba(30, 144, 255, 0.2), 3px 3px 0 rgba(30, 144, 255, 0.2);
+    -webkit-appearance: none;
+}
+
+input:focus {
+    outline-offset: 1px;
+}
+
+.show-password input {
+    box-shadow: inset 0 0 0 2px black;
+    border: 2px dashed white;
+}
+
+.show-password input:focus {
+    outline: none;
+    border-color: var(--beamColor);
+}
+
+#eyeball {
+    --size: 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    outline: none;
+    position: absolute;
+    top: 50%;
+    right: 1.9rem;
+    border: none;
+    background-color: transparent;
+    transform: translateY(-50%);
+}
+
+#eyeball:active {
+    transform: translateY(calc(-50% + 1px));
+}
+
+.eye {
+    width: var(--size);
+    height: var(--size);
+    border: 2px solid var(--inputColor);
+    border-radius: calc(var(--size) / 1.5) 0;
+    transform: rotate(45deg);
+}
+
+.eye:before,
+.eye:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    border-radius: 100%;
+}
+
+.eye:before {
+    width: 35%;
+    height: 35%;
+    background-color: var(--inputColor);
+}
+
+.eye:after {
+    width: 65%;
+    height: 65%;
+    border: 2px solid var(--inputColor);
+    border-radius: 100%;
+}
+
+#beam {
+    position: absolute;
+    top: 50%;
+    right: 1.75rem;
+    clip-path: polygon(100% 50%, 100% 50%, 0 0, 0 100%);
+    width: 100vw;
+    height: 25vw;
+    z-index: 1;
+    mix-blend-mode: multiply;
+    transition: transform 200ms ease-out;
+    transform-origin: 100% 50%;
+    transform: translateY(-50%) rotate(var(--beamDegrees, 0));
+    pointer-events: none;
+    z-index: 1; /* 确保在文字下方 */
+}
+
+.show-password #beam {
+    background: var(--beamColor);
+}
