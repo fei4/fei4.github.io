@@ -3,119 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>遇见的个人网页</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f5f5f5;
-        }
-        header {
-            background-color: #4CAF50;
-            color: white;
-            text-align: center;
-            padding: 1em 0;
-        }
-        section {
-            padding: 2em;
-            margin: 1em auto;
-            max-width: 800px;
-            background-color: white;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        .carousel {
-            display: flex;
-            overflow: hidden;
-            margin: 2em 0;
-        }
-        .carousel img {
-            max-width: 100%;
-            transition: transform 0.5s ease;
-        }
-        .blog-post {
-            border-bottom: 1px solid #ddd;
-            padding: 1em 0;
-        }
-        .blog-post:last-child {
-            border-bottom: none;
-        }
-        footer {
-            text-align: center;
-            padding: 1em 0;
-            background-color: #333;
-            color: white;
-        }
-    </style>
+    <title>欢迎来到seesand世界</title>
+    <link rel="stylesheet" type="text/css" href="css/index.css">
 </head>
 <body>
-    <header>
-        <h1>遇见</h1>
-        <p>随心随性</p>
-    </header>
-
-    <section id="introduction">
-        <h2>个人简介</h2>
-        <p>你好！我是遇见，一个追求随心随性生活的人。</p>
-    </section>
-
-    <section id="work-experience">
-        <h2>工作经历</h2>
-        <ul>
-            <li>公司 A - 职位 X（年份）</li>
-            <li>公司 B - 职位 Y（年份）</li>
-        </ul>
-    </section>
-
-    <section id="projects">
-        <h2>项目展示</h2>
-        <div class="carousel">
-            <img src="project1.jpg" alt="项目 1">
-            <img src="project2.jpg" alt="项目 2">
-            <img src="project3.jpg" alt="项目 3">
+<div class="container">
+    <!-- 左侧文字区域 -->
+    <div class="left-content">
+        <!-- 原始文字 -->
+        <div class="text-default">
+            <h1>欢迎来到C3的世界！</h1>
+            <p>为了验证你的身份，请输入登录密码</p>
         </div>
-    </section>
 
-    <section id="education">
-        <h2>教育背景</h2>
-        <ul>
-            <li>学校 A - 专业 X（年份）</li>
-            <li>学校 B - 专业 Y（年份）</li>
-        </ul>
-    </section>
-
-    <section id="blog">
-        <h2>博客</h2>
-        <div class="blog-post">
-            <h3>博客文章标题 1</h3>
-            <p>博客文章内容摘要...</p>
+        <!-- 射线触发后的提示文字 -->
+        <div class="text-overlay">
+            <h1>是一个特殊的日子</h1>
+            <p>再加上姓氏的笔画</p>
         </div>
-        <div class="blog-post">
-            <h3>博客文章标题 2</h3>
-            <p>博客文章内容摘要...</p>
+    </div>
+
+    <!-- 右侧内容区域 -->
+    <div class="right-content">
+        <!-- 登录表单 -->
+        <form onsubmit="return false">
+            <div class="form-item">
+                <label for="password">Password</label>
+                <div class="input-wrapper">
+                    <input type="password" id="password" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" data-lpignore="true">
+                    <button type="button" id="eyeball">
+                        <div class="eye"></div>
+                    </button>
+                    <div id="beam"></div>
+                </div>
+            </div>
+        </form>
+
+        <!-- 特殊日子链接 -->
+        <div>
+            <a class="effect1" href="#" id="submitBtn" onclick="validatePassword(event)">
+                准备好了吗
+                <span class="bg"></span>
+            </a>
         </div>
-    </section>
+    </div>
+</div>
 
-    <section id="video">
-        <h2>视频</h2>
-        <video width="100%" controls>
-            <source src="video.mp4" type="video/mp4">
-            您的浏览器不支持 HTML5 视频标签。
-        </video>
-    </section>
-
-    <footer>
-        <p>&copy; 2024 遇见. 版权所有.</p>
-    </footer>
-
-    <script>
-        let currentImageIndex = 0;
-        const images = document.querySelectorAll('.carousel img');
-        setInterval(() => {
-            images[currentImageIndex].style.transform = 'translateX(-100%)';
-            currentImageIndex = (currentImageIndex + 1) % images.length;
-            images[currentImageIndex].style.transform = 'translateX(0)';
-        }, 3000);
-    </script>
+<script src="js/index.js"></script>
 </body>
 </html>
