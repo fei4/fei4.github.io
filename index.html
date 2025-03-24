@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>欢迎来到seesand世界</title>
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+</head>
+<body>
+<div class="container">
+    <!-- 左侧文字区域 -->
+    <div class="left-content">
+        <!-- 原始文字 -->
+        <div class="text-default">
+            <h1>欢迎来到C3的世界！</h1>
+            <p>为了验证你的身份，请输入登录密码</p>
+        </div>
+
+        <!-- 射线触发后的提示文字 -->
+        <div class="text-overlay">
+            <h1>是一个特殊的日子</h1>
+            <p>再加上姓氏的笔画</p>
+        </div>
+    </div>
+
+    <!-- 右侧内容区域 -->
+    <div class="right-content">
+        <!-- 登录表单 -->
+        <form onsubmit="return false">
+            <div class="form-item">
+                <label for="password">Password</label>
+                <div class="input-wrapper">
+                    <input type="password" id="password" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" data-lpignore="true">
+                    <button type="button" id="eyeball">
+                        <div class="eye"></div>
+                    </button>
+                    <div id="beam"></div>
+                </div>
+            </div>
+        </form>
+
+        <!-- 特殊日子链接 -->
+        <div>
+            <a class="effect1" href="#" id="submitBtn" onclick="validatePassword(event)">
+                准备好了吗
+                <span class="bg"></span>
+            </a>
+        </div>
+    </div>
+</div>
+
+<script src="js/index.js"></script>
+</body>
+</html>
