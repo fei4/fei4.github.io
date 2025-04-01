@@ -298,10 +298,13 @@ input:focus {
     z-index: 1;
     mix-blend-mode: multiply;
     transition: transform 200ms ease-out;
-    transform-origin: 100% 50%;
-    transform: translateY(-50%) rotate(var(--beamDegrees, 0));
+    transform: translateY(-50%) rotate(var(--beamDegrees));
     pointer-events: none;
-    z-index: 1; /* 确保在文字下方 */
+    left: auto; /* 明确覆盖默认值 */
+    bottom: auto;
+    /*transform-origin: 100% 50%;*/
+    transform-origin: right center; /* 确保从右侧中心点旋转 */
+
 }
 
 .show-password #beam {
